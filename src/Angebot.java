@@ -3,17 +3,21 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class Angebot {
-double regulärpreis;
-GregorianCalendar flugdatum;
-String flugnummer;
-double reduzierterPreis;
-Rabattstrategie rabattstrategie;
+private double regulärpreis;
+private GregorianCalendar flugdatum;
+private String flugnummer;
+private double reduzierterPreis;
+private Rabattstrategie rabattstrategie;
 
     public Angebot(double regulärpreis, GregorianCalendar flugdatum, String flugnummer) {
         this.regulärpreis = regulärpreis;
         this.flugdatum = flugdatum;
         this.flugnummer = flugnummer;
 
+        rabattStrategieWählen();
+    }
+
+    private void rabattStrategieWählen() {
         SimpleDateFormat reformat = new SimpleDateFormat("MMMM");
         String newFormat = reformat.format(flugdatum.getTime());
 
